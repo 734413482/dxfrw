@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{366E8059-9D6D-4738-9D92-EE6ABEF3DF61}</ProjectGuid>
+    <Keyword>QtVS_v303</Keyword>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.17763.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\dxf\LibreCAD-master\libraries\muparser\include;E:\local\boost_1_69_0;G:\dxf\libdxfrw-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>G:\dxf\LibreCAD-master\generated\lib\dxfrw.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
+    <QtInstall>msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtInstall>msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="drw_classes.cpp" />
+    <ClCompile Include="drw_dbg.cpp" />
+    <ClCompile Include="drw_entities.cpp" />
+    <ClCompile Include="drw_header.cpp" />
+    <ClCompile Include="drw_objects.cpp" />
+    <ClCompile Include="drw_textcodec.cpp" />
+    <ClCompile Include="dwgbuffer.cpp" />
+    <ClCompile Include="dwgreader.cpp" />
+    <ClCompile Include="dwgreader15.cpp" />
+    <ClCompile Include="dwgreader18.cpp" />
+    <ClCompile Include="dwgreader21.cpp" />
+    <ClCompile Include="dwgreader24.cpp" />
+    <ClCompile Include="dwgreader27.cpp" />
+    <ClCompile Include="dwgutil.cpp" />
+    <ClCompile Include="dxfreader.cpp" />
+    <ClCompile Include="dxfwriter.cpp" />
+    <ClCompile Include="lc_hyperbola.cpp" />
+    <ClCompile Include="lc_quadratic.cpp" />
+    <ClCompile Include="lc_rect.cpp" />
+    <ClCompile Include="lc_splinepoints.cpp" />
+    <ClCompile Include="libdwgr.cpp" />
+    <ClCompile Include="libdxfrw.cpp" />
+    <ClCompile Include="muParser.cpp" />
+    <ClCompile Include="muParserBase.cpp" />
+    <ClCompile Include="muParserBytecode.cpp" />
+    <ClCompile Include="muParserCallback.cpp" />
+    <ClCompile Include="muParserError.cpp" />
+    <ClCompile Include="muParserTokenReader.cpp" />
+    <ClCompile Include="qg_filedialog.cpp" />
+    <ClCompile Include="RS.cpp" />
+    <ClCompile Include="rscodec.cpp" />
+    <ClCompile Include="rs_actioninterface.cpp" />
+    <ClCompile Include="RS_Arc.cpp" />
+    <ClCompile Include="RS_AtomicEntity.cpp" />
+    <ClCompile Include="rs_block.cpp" />
+    <ClCompile Include="rs_blocklist.cpp" />
+    <ClCompile Include="rs_circle.cpp" />
+    <ClCompile Include="RS_Color.cpp" />
+    <ClCompile Include="rs_commands.cpp" />
+    <ClCompile Include="rs_constructionline.cpp" />
+    <ClCompile Include="RS_Debug.cpp" />
+    <ClCompile Include="rs_dialogfactory.cpp" />
+    <ClCompile Include="rs_dimaligned.cpp" />
+    <ClCompile Include="rs_dimangular.cpp" />
+    <ClCompile Include="rs_dimdiametric.cpp" />
+    <ClCompile Include="rs_dimension.cpp" />
+    <ClCompile Include="rs_dimlinear.cpp" />
+    <ClCompile Include="rs_dimradial.cpp" />
+    <ClCompile Include="RS_Document.cpp" />
+    <ClCompile Include="rs_ellipse.cpp" />
+    <ClCompile Include="RS_Entity.cpp" />
+    <ClCompile Include="RS_EntityContainer.cpp" />
+    <ClCompile Include="rs_eventhandler.cpp" />
+    <ClCompile Include="rs_fileio.cpp" />
+    <ClCompile Include="rs_filterdxfrw.cpp" />
+    <ClCompile Include="RS_Flags.cpp" />
+    <ClCompile Include="rs_font.cpp" />
+    <ClCompile Include="rs_fontlist.cpp" />
+    <ClCompile Include="rs_graphic.cpp" />
+    <ClCompile Include="rs_graphicview.cpp" />
+    <ClCompile Include="rs_grid.cpp" />
+    <ClCompile Include="rs_hatch.cpp" />
+    <ClCompile Include="rs_image.cpp" />
+    <ClCompile Include="rs_infoarea.cpp" />
+    <ClCompile Include="rs_information.cpp" />
+    <ClCompile Include="rs_insert.cpp" />
+    <ClCompile Include="RS_Layer.cpp" />
+    <ClCompile Include="RS_LayerList.cpp" />
+    <ClCompile Include="rs_leader.cpp" />
+    <ClCompile Include="rs_line.cpp" />
+    <ClCompile Include="rs_linetypepattern.cpp" />
+    <ClCompile Include="rs_locale.cpp" />
+    <ClCompile Include="rs_math.cpp" />
+    <ClCompile Include="rs_mtext.cpp" />
+    <ClCompile Include="rs_overlayline.cpp" />
+    <ClCompile Include="rs_painter.cpp" />
+    <ClCompile Include="rs_painterqt.cpp" />
+    <ClCompile Include="rs_pattern.cpp" />
+    <ClCompile Include="rs_patternlist.cpp" />
+    <ClCompile Include="RS_Pen.cpp" />
+    <ClCompile Include="rs_point.cpp" />
+    <ClCompile Include="rs_polyline.cpp" />
+    <ClCompile Include="rs_settings.cpp" />
+    <ClCompile Include="rs_snapper.cpp" />
+    <ClCompile Include="rs_solid.cpp" />
+    <ClCompile Include="rs_spline.cpp" />
+    <ClCompile Include="rs_system.cpp" />
+    <ClCompile Include="rs_text.cpp" />
+    <ClCompile Include="RS_Undo.cpp" />
+    <ClCompile Include="RS_Undoable.cpp" />
+    <ClCompile Include="RS_UndoCycle.cpp" />
+    <ClCompile Include="rs_units.cpp" />
+    <ClCompile Include="rs_variabledict.cpp" />
+    <ClCompile Include="RS_Vector.cpp" />
+    <QtRcc Include="DxfRW.qrc" />
+    <QtUic Include="DxfRW.ui" />
+    <QtMoc Include="DxfRW.h" />
+    <ClCompile Include="DxfRW.cpp" />
+    <ClCompile Include="dx_iface.cpp" />
+    <ClCompile Include="main.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="drw_base.h" />
+    <ClInclude Include="drw_classes.h" />
+    <ClInclude Include="drw_cptable932.h" />
+    <ClInclude Include="drw_cptable936.h" />
+    <ClInclude Include="drw_cptable949.h" />
+    <ClInclude Include="drw_cptable950.h" />
+    <ClInclude Include="drw_cptables.h" />
+    <ClInclude Include="drw_dbg.h" />
+    <ClInclude Include="drw_entities.h" />
+    <ClInclude Include="drw_header.h" />
+    <ClInclude Include="drw_interface.h" />
+    <ClInclude Include="drw_objects.h" />
+    <ClInclude Include="drw_textcodec.h" />
+    <ClInclude Include="dwgbuffer.h" />
+    <ClInclude Include="dwgreader.h" />
+    <ClInclude Include="dwgreader15.h" />
+    <ClInclude Include="dwgreader18.h" />
+    <ClInclude Include="dwgreader21.h" />
+    <ClInclude Include="dwgreader24.h" />
+    <ClInclude Include="dwgreader27.h" />
+    <ClInclude Include="dwgutil.h" />
+    <ClInclude Include="dxfreader.h" />
+    <ClInclude Include="dxfwriter.h" />
+    <ClInclude Include="dx_data.h" />
+    <ClInclude Include="dx_iface.h" />
+    <ClInclude Include="lc_hyperbola.h" />
+    <ClInclude Include="lc_quadratic.h" />
+    <ClInclude Include="lc_rect.h" />
+    <ClInclude Include="lc_splinepoints.h" />
+    <ClInclude Include="libdwgr.h" />
+    <ClInclude Include="libdxfrw.h" />
+    <ClInclude Include="muParser.h" />
+    <ClInclude Include="muParserBase.h" />
+    <ClInclude Include="muParserBytecode.h" />
+    <ClInclude Include="muParserCallback.h" />
+    <ClInclude Include="muParserDef.h" />
+    <ClInclude Include="muParserError.h" />
+    <ClInclude Include="muParserFixes.h" />
+    <ClInclude Include="muParserStack.h" />
+    <ClInclude Include="muParserTemplateMagic.h" />
+    <ClInclude Include="muParserToken.h" />
+    <ClInclude Include="muParserTokenReader.h" />
+    <ClInclude Include="qg_filedialog.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="RS.h" />
+    <QtMoc Include="rs_actioninterface.h" />
+    <ClInclude Include="rscodec.h" />
+    <ClInclude Include="RS_Arc.h" />
+    <ClInclude Include="RS_AtomicEntity.h" />
+    <ClInclude Include="rs_block.h" />
+    <ClInclude Include="rs_blocklist.h" />
+    <ClInclude Include="rs_blocklistlistener.h" />
+    <ClInclude Include="rs_circle.h" />
+    <ClInclude Include="RS_Color.h" />
+    <ClInclude Include="rs_commandevent.h" />
+    <ClInclude Include="rs_commands.h" />
+    <ClInclude Include="rs_constructionline.h" />
+    <ClInclude Include="rs_coordinateevent.h" />
+    <ClInclude Include="RS_Debug.h" />
+    <ClInclude Include="rs_dialogfactory.h" />
+    <ClInclude Include="rs_dialogfactoryadapter.h" />
+    <ClInclude Include="rs_dialogfactoryinterface.h" />
+    <ClInclude Include="rs_dimaligned.h" />
+    <ClInclude Include="rs_dimangular.h" />
+    <ClInclude Include="rs_dimdiametric.h" />
+    <ClInclude Include="rs_dimension.h" />
+    <ClInclude Include="rs_dimlinear.h" />
+    <ClInclude Include="rs_dimradial.h" />
+    <ClInclude Include="RS_Document.h" />
+    <ClInclude Include="rs_ellipse.h" />
+    <ClInclude Include="RS_Entity.h" />
+    <ClInclude Include="RS_EntityContainer.h" />
+    <QtMoc Include="rs_eventhandler.h" />
+    <ClInclude Include="rs_fileio.h" />
+    <ClInclude Include="rs_filterdxfrw.h" />
+    <ClInclude Include="rs_filterinterface.h" />
+    <ClInclude Include="RS_Flags.h" />
+    <QtMoc Include="rs_graphicview.h" />
+    <ClInclude Include="rs_font.h" />
+    <ClInclude Include="rs_fontchar.h" />
+    <ClInclude Include="rs_fontlist.h" />
+    <ClInclude Include="rs_graphic.h" />
+    <ClInclude Include="rs_grid.h" />
+    <ClInclude Include="rs_hatch.h" />
+    <ClInclude Include="rs_image.h" />
+    <ClInclude Include="rs_infoarea.h" />
+    <ClInclude Include="rs_information.h" />
+    <ClInclude Include="rs_insert.h" />
+    <ClInclude Include="RS_Layer.h" />
+    <ClInclude Include="RS_LayerList.h" />
+    <ClInclude Include="RS_LayerListListener.h" />
+    <ClInclude Include="rs_leader.h" />
+    <ClInclude Include="rs_line.h" />
+    <ClInclude Include="rs_linetypepattern.h" />
+    <ClInclude Include="rs_locale.h" />
+    <ClInclude Include="rs_math.h" />
+    <ClInclude Include="rs_mtext.h" />
+    <ClInclude Include="rs_overlayline.h" />
+    <ClInclude Include="rs_painter.h" />
+    <ClInclude Include="rs_painterqt.h" />
+    <ClInclude Include="rs_pattern.h" />
+    <ClInclude Include="rs_patternlist.h" />
+    <ClInclude Include="RS_Pen.h" />
+    <ClInclude Include="rs_point.h" />
+    <ClInclude Include="rs_polyline.h" />
+    <ClInclude Include="rs_settings.h" />
+    <ClInclude Include="rs_snapper.h" />
+    <ClInclude Include="rs_solid.h" />
+    <ClInclude Include="rs_spline.h" />
+    <ClInclude Include="rs_system.h" />
+    <ClInclude Include="rs_text.h" />
+    <ClInclude Include="RS_Undo.h" />
+    <ClInclude Include="RS_Undoable.h" />
+    <ClInclude Include="RS_UndoCycle.h" />
+    <ClInclude Include="rs_units.h" />
+    <ClInclude Include="rs_variable.h" />
+    <ClInclude Include="rs_variabledict.h" />
+    <ClInclude Include="RS_Vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DxfRW.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="GraphicBase.cd" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
